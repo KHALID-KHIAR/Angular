@@ -1,1 +1,101 @@
-<p>reactive-form works!</p>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+        <label>Firstname</label>
+        <input type="text" name="Firstname" required formControlName="firstname">
+        <div class="d" *ngIf="field['firstname'].errors ">
+            <span class="error" *ngIf="
+            field['firstname'].errors!['required'] &&
+            (field['firstname'].touched || isSubmited )  
+           "> * Firstname is required</span>
+
+        </div>
+      
+    
+        <label>Lastname</label>
+        <input type="text" name="Lastname" required formControlName="lastname">
+        <div class="d" *ngIf="field['lastname'].errors ">
+            <span class="error" *ngIf="
+            field['lastname'].errors!['required'] &&
+            (field['lastname'].touched || isSubmited )  
+           "> * Lastname is required</span>
+
+        </div>
+        <label>Email</label>
+        <input type="email" name="email" required formControlName="email">
+        <div class="d" *ngIf="field['email']!.errors">
+            <span class="error" *ngIf="
+            field['email'].errors!['required'] &&
+            (field['email'].touched || isSubmited)"
+            > * Email is required</span>
+            <span class="error" *ngIf="
+            field['email'].errors!['email']
+            "> * Email is invalid</span>
+    </div>
+    <i class="fa-solid fa-eye"></i>
+        <label>Password</label>
+        <div class="password-container">
+            <input [type]="isPassword ? 'password':'text'" name="password" required formControlName="password" >
+            <span id="showP" (click)="showPassword()" [innerHTML]="isPassword ? SvgCheckValidHtml(eyeOpenSvg) : SvgCheckValidHtml(eyeCloseSvg)">  icon         </span>
+        
+
+        </div>
+        <div class="d" *ngIf="field['password'].errors ">
+
+            <span class="error" *ngIf="
+            (field['password'].touched|| isSubmited )&&
+            field['password'].errors!['required']
+            ">* Password is required</span>
+            <span class="error" *ngIf="
+            field['password'].errors!['minlength']
+            "> * Password must be at least 8 characters</span>
+            
+        </div>
+        <label>Confirme Password</label>
+        <div class="password-container">
+            <input [type]="isPassword ? 'password':'text'" name="confirmePassword" required formControlName="confirmePassword" >
+            <span id="showP" (click)="showPassword()" [innerHTML]="isPassword ? SvgCheckValidHtml(eyeOpenSvg) : SvgCheckValidHtml(eyeCloseSvg)">  icon         </span>
+        
+
+        </div>
+        <div class="d" *ngIf="
+        (field['confirmePassword'].touched|| isSubmited )&&
+        field['confirmePassword'].errors ">
+
+            <span class="error" *ngIf="
+            (field['confirmePassword'].touched|| isSubmited )&&
+            field['confirmePassword'].errors!['required']
+            ">* Confirme password is required</span>
+            <span class="error" *ngIf="
+            myForm.errors!['passwordmisMatch'] && 
+            field['confirmePassword'].touched && myForm.errors 
+            " > * Password dosnt match</span>
+        </div>
+
+        <label>Framwork</label>
+        <select name="framework" required formControlName="framework" >
+            <option value="Angular">Angular</option>
+            <option value="Springboot">Springboot</option>
+            <option value="ReactJs">ReactJs</option>
+            <option value="Django">Django</option>
+            <option value="Symfony">Symfony</option>
+        </select>
+        <div class="d" *ngIf="field['framework'].errors">
+            <span class="error" *ngIf="
+            (field['framework'].touched|| isSubmited) &&
+            field['framework'].errors['required']
+            ">* Please select an option</span>
+        </div>
+        <div class="terms">
+            <input type="checkbox" name="check" required formControlName="check" id="terme"> 
+                <label class="" for="terme"> I have read and agree to the Terms</label>
+        </div>
+        <div class="d" *ngIf="field['check'].errors">
+            <span class="error" *ngIf="
+                (field['check'].touched|| isSubmited) &&
+                field['check'].errors['required']
+            ">* Accept Terms is required</span>
+        </div>
+
+        <button type="submit">Send</button>
+
+</form>
