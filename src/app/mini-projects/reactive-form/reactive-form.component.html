@@ -35,10 +35,9 @@
         <label>Password</label>
         <div class="password-container">
             <input [type]="isPassword ? 'password':'text'" name="password" required formControlName="password" >
-            <span id="showP" (click)="showPassword()" [innerHTML]="isPassword ? SvgCheckValidHtml(eyeOpenSvg) : SvgCheckValidHtml(eyeCloseSvg)">  icon         </span>
-        
-
+            <span id="showP" (click)="showPassword()" [innerHTML]="isPassword ? SvgCheckValidHtml(eyeOpenSvg) : SvgCheckValidHtml(eyeCloseSvg)"></span>
         </div>
+
         <div class="d" *ngIf="field['password'].errors ">
 
             <span class="error" *ngIf="
@@ -85,7 +84,7 @@
         </div>
         <div class="terms">
             <input type="checkbox" name="check" required formControlName="check" id="terme"> 
-                <label class="" for="terme"> I have read and agree to the Terms</label>
+                <label class="" for="terme"> I have read and agree to the <strong>Terms</strong></label>
         </div>
         <div class="d" *ngIf="field['check'].errors">
             <span class="error" *ngIf="

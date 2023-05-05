@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import {FormGroup , FormControl, Validators, AbstractControl} from '@angular/forms'
+import {FormGroup , FormControl, Validators, AbstractControl, ValidatorFn,ValidationErrors} from '@angular/forms'
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { matchPassword } from './matchPassword';
 
@@ -13,8 +13,19 @@ export class ReactiveFormComponent implements OnInit {
   isSubmited:boolean = false ;
 
   constructor(private sanitizer: DomSanitizer) {}
-  ngOnInit(): void {
 
+   matchPassword : ValidatorFn =  (control: AbstractControl) : ValidationErrors | null =>{
+
+    const password = control.get("password")
+    const ConfirmePassword = control.get("confirmePassword")
+        if(password?.value !== ConfirmePassword?.value)
+        return {passwordmisMatch: true}
+        return null ;
+    
+    }
+
+  ngOnInit(): void {
+   
   this.myForm = new FormGroup({
     firstname : new FormControl("",Validators.required),
     lastname: new FormControl("",Validators.required),
@@ -24,6 +35,7 @@ export class ReactiveFormComponent implements OnInit {
     framework : new FormControl("",Validators.required),
     check: new FormControl(false,Validators.requiredTrue)
   },
+  // this.matchPassword as ValidatorFn
   {
     validators : matchPassword 
   }
@@ -47,21 +59,14 @@ onSubmit(){
     this.myForm.reset()
   }
   else{
-  console.log("Form is not Valid", this.myForm);
+  // console.log("Form is not Valid", this.myForm);
+  console.log(this.myForm);
+
   }
   
 }
 
- matchPassword(control : AbstractControl){
 
-  const password = control.get('password')
-  const confirmedPassword = control.get("confirme")
-
-  if(password?.value !== confirmedPassword?.value){
-      return { passwordMismatch: true }
-  }
-  return null ;
-}
 
 showPassword(){
   this.isPassword = !this.isPassword ;
