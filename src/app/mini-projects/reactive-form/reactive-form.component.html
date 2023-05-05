@@ -57,18 +57,16 @@
         
 
         </div>
-        <div class="d" *ngIf="
-        (field['confirmePassword'].touched|| isSubmited )&&
-        field['confirmePassword'].errors ">
-
+        <div class="d" *ngIf="field['confirmePassword'].errors">
             <span class="error" *ngIf="
             (field['confirmePassword'].touched|| isSubmited )&&
             field['confirmePassword'].errors!['required']
             ">* Confirme password is required</span>
+
             <span class="error" *ngIf="
-            myForm.errors!['passwordmisMatch'] && 
-            field['confirmePassword'].touched && myForm.errors 
-            " > * Password dosnt match</span>
+            
+            myForm.errors && myForm.errors!['passwordmisMatch']
+            ">* Password dosnt match</span>
         </div>
 
         <label>Framwork</label>
