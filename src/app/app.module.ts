@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ReactiveFormComponent } from './mini-projects/reactive-form/reactive-form.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthIntercepteurService } from './Services/auth-intercepteur.service';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,18 @@ import { ReactiveFormComponent } from './mini-projects/reactive-form/reactive-fo
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS ,
+      useClass: AuthIntercepteurService,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

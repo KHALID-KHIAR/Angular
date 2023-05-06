@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-angular-project';
+
+  constructor(private http:HttpClient){}
+
+  testInterceptor(){
+     this.http.get("https://official-joke-api.appspot.com/random_joke").subscribe(
+     (res)=>{
+      console.log(res);
+    //  body = res.
+    })
+
+
+        
+  }
 }

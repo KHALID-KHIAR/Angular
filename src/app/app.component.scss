@@ -1,0 +1,17 @@
+button{
+    padding: 20px;
+    background-color: aqua;
+    color: white;
+    font-weight: bolder;
+    font-size: larger;
+    border: whitesmoke;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+button:active{
+    scale: 0.65;
+    transition: .5s;
+}
