@@ -10,11 +10,12 @@ export class AppComponent {
 
   constructor(private http:HttpClient){}
 
+  body:any ;
   testInterceptor(){
-     this.http.get("https://official-joke-api.appspot.com/random_joke").subscribe(
+     this.http.get("https://api.github.com/users").subscribe(
      (res)=>{
       console.log(res);
-    //  body = res.
+      this.body = res ;
     })
 
 

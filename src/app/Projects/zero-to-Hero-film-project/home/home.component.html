@@ -1,0 +1,9 @@
+<div class="popular-films">
+    <app-film
+    *ngFor="let poplar of popular_movies"
+    [title]="poplar.name"
+    [image]="poplar.cover"
+    [rating]="poplar.rating"
+    [link]="poplar.cover"
+   ></app-film>
+</div>
