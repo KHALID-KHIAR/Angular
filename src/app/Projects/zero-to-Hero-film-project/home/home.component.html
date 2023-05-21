@@ -1,4 +1,7 @@
-<div class="popular-films">
+<button (click)="HandlLogOut()">Log Out</button>
+
+<h2 style="text-align: center;">Popular Movies </h2>
+<div class="popular-movies">
     <app-film
     *ngFor="let poplar of popular_movies"
     [title]="poplar.name"
@@ -6,4 +9,15 @@
     [rating]="poplar.rating"
     [link]="poplar.cover"
    ></app-film>
+</div>
+
+<h2>Theatre Movies </h2>
+<div class="theatre-movies">
+    <!-- <app-film
+  *ngFor="let theatre of theatre_movie"
+    [title]="theatre.name"
+    [image]="theatre.cover"
+    [rating]="theatre.rating"
+    [link]="theatre.cover"
+   ></app-film> -->
 </div>

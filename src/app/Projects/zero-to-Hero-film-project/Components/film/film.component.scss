@@ -17,8 +17,17 @@
     // scale: 1.012;
     // border-top: 3px solid ;
     // border-bottom: 3px solid ;
-    opacity: 8;
+    transform: scale(0.95);
+    // transform: scaleX(1.1);
+    // transform: rotate(45deg);
+    // transform: skewX(5deg);
+    // transform: skew(5deg,1deg);
+    // transform: translate(5px,12px);
+    // transform: matrix(0.7,-0.5,0.5,0,4,0.5,0.7);
+    
+    
     transition: .5s;
+
 }
 .title{
     display: block;

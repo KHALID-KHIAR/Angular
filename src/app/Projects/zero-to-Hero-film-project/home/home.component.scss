@@ -1,4 +1,4 @@
-.popular-films{
+.popular-movies{
     width: 85%;
     margin: auto;
     display: flex;
@@ -9,6 +9,12 @@
     border: 1px solid grey;
     border-radius: 20px;
     box-shadow: grey 3px 10px 10px 0px;
+}
+.theatre-movies{
+    width: 100%;
+    display: flex;
+    gap: 50px;
+
 }
 
 ::-webkit-scrollbar{

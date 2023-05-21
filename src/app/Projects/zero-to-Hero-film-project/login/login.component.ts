@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import {FormGroup , FormControl, Validators, AbstractControl, ValidatorFn,ValidationErrors} from '@angular/forms'
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,12 @@ export class LoginComponent implements OnInit{
   myForm!: FormGroup ; 
   isSubmited:boolean = false ;
   
-  constructor(private sanitizer: DomSanitizer,private router:Router) {}
+  constructor(
+          private sanitizer: DomSanitizer,
+          private router:Router,
+          private login:LoginService
+          
+    ) {}
   
   ngOnInit(): void {
    
@@ -35,8 +41,7 @@ export class LoginComponent implements OnInit{
       // Your Back-End Code here
       if(this.field["username"].value==="khalid" && this.field['password'].value==="123"){
         console.log("Welcome back Khalid");
-        this.router.navigateByUrl("film-project/home")
-        
+        this.login.isLoggin()
       }  
       // this.myForm.reset()
     }

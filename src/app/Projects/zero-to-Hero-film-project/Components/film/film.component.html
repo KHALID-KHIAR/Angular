@@ -1,5 +1,5 @@
-<div class="film-container">    
-    <a [href]="link" target="_blank" class="link-container">
+<div class="film-container" (click)="handleClick()">    
+    <!-- <a [href]="link" target="_blank" class="link-container"> -->
     <div class="image-container">
         <img [src]="image" alt="film Image">
     </div>
@@ -10,5 +10,5 @@
         <span class="rating">{{rating}} </span>
     </div>
 
-</a>
+<!-- </a> -->
 </div>
