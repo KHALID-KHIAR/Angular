@@ -1,0 +1,42 @@
+.buttons{
+    display: flex;
+    width: 100%;
+    background-color: black;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-around;
+}
+.buttons a{
+    text-decoration: none;
+    font-size: large;
+    letter-spacing: 2px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+.buttons a:hover {
+    color: black;
+    background-color: white;
+    transition: .7s;
+    scale: 1.015;
+}
+.active{
+    color: black !important;
+    background-color: white !important;
+    scale: 1.09;
+}
+
+.container{
+    border: 1px solid;
+    width: 60%;
+    margin: auto;
+    background-color: white;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+}

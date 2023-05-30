@@ -1,17 +1,16 @@
-button{
-    padding: 20px;
-    background-color: aqua;
-    color: white;
+a{
+    color: black;
     font-weight: bolder;
-    font-size: larger;
     border: whitesmoke;
-    border-radius: 5px;
-    text-align: center;
-    display: flex;
-    align-items: center;
+    border-radius: 7px;
     cursor: pointer;
+    margin: 10px 10px;
+    letter-spacing: 1px;
+    padding: 5px;
 }
-button:active{
-    scale: 0.65;
+.active{
+    scale: 0.85;
     transition: .5s;
+    background-color: black;
+    color: white;
 }

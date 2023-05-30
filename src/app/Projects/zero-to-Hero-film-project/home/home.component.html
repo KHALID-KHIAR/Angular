@@ -1,7 +1,9 @@
 <button (click)="HandlLogOut()">Log Out</button>
 
-<h2 style="text-align: center;">Popular Movies </h2>
-<div class="popular-movies">
+<div class="container">
+  <div class="inside-cont">
+  <h2 style="">Popular Movies </h2>
+  <div class="popular-movies">
     <app-film
     *ngFor="let poplar of popular_movies"
     [title]="poplar.name"
@@ -9,15 +11,19 @@
     [rating]="poplar.rating"
     [link]="poplar.cover"
    ></app-film>
+  </div>
 </div>
-
-<h2>Theatre Movies </h2>
+<div class="inside-cont2">
+  <h2>Theatre Movies </h2>
 <div class="theatre-movies">
-    <!-- <app-film
+    <app-film
   *ngFor="let theatre of theatre_movie"
     [title]="theatre.name"
     [image]="theatre.cover"
     [rating]="theatre.rating"
     [link]="theatre.cover"
-   ></app-film> -->
+   ></app-film>
+</div>
+</div>
+<div class="all-time-pop"></div>
 </div>
