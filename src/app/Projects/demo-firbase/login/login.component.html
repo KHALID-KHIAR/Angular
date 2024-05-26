@@ -1,0 +1,39 @@
+<div class="container">
+    <form [formGroup]="myForm" (ngSubmit)="Login()">
+        <h2>Login Form</h2>
+
+        <label>email</label>
+        <input type="text" name="email" required formControlName="email">
+        <div class="d" *ngIf="field['email'].errors ">
+            <span class="error" *ngIf="
+            field['email'].errors!['required'] &&
+            (field['email'].touched || isSubmited )  
+           "> * email is required</span>
+            <span class="error" *ngIf="
+            field['email'].errors!['email']
+            ">Email not valid</span>
+        </div>
+      
+    
+        <label>Password</label>
+        <div class="password-container">
+            <input [type]="isPassword ? 'password':'text'" name="password" required formControlName="password" >
+            <span id="showP" (click)="showPassword()" [innerHTML]="isPassword ? SvgCheckValidHtml(eyeOpenSvg) : SvgCheckValidHtml(eyeCloseSvg)"></span>
+        </div>
+
+        <div class="d" *ngIf="field['password'].errors ">
+
+            <span class="error" *ngIf="
+            (field['password'].touched|| isSubmited )&&
+            field['password'].errors!['required']
+            ">* Password is required</span>
+            <span class="error" *ngIf="
+            field['password'].errors!['minlength']
+            "> * Password must be at least 8 characters</span>
+            
+        </div>
+
+        <button type="submit">Send</button>
+
+</form>
+</div>

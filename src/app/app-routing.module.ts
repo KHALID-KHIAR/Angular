@@ -9,7 +9,9 @@ const routes: Routes = [
 
   { path:'charts' ,loadChildren:()=>import('./mini-projects/charts/charts.module').then(m=>m.ChartsModule)},
 
-  {path:'basic-concept',loadChildren:()=>import('./mini-projects/basic-concepts/basic-concepts.module').then(m=>m.BasicConceptsModule)}
+  {path:'basic-concept',loadChildren:()=>import('./mini-projects/basic-concepts/basic-concepts.module').then(m=>m.BasicConceptsModule)},
+
+  {path: 'demoFirebase', loadChildren:()=>import('./Projects/demo-firbase/demo-firbase.module').then(m=> m.DemoFirbaseModule) }
 
 ];
 

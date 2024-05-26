@@ -1,0 +1,14 @@
+<div class="container">
+    <!-- <div class="" *ngFor="let user of users$ |async">
+        <h3> {{user?.id}} {{user?.name}}</h3>
+    </div>
+    <hr>
+    <h2>Fitred Users </h2>
+    <div class="" *ngFor="let user of fitredUsers$ |async">
+        <h3> {{user?.id}} {{user?.name}}</h3>
+    </div> -->
+    <h2>Behavior Subject  </h2>
+    <div *ngIf="bs |async as user">
+        <h3 *ngFor="let it of user.data"> {{it.id}} {{it.name}}</h3>
+    </div>
+</div>

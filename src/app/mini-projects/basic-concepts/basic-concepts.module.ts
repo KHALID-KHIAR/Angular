@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { CustomDirectiveDirective } from './directive-test/custom-directive.directive';
 import { routingBasicConcept } from './routing-basic-concept.module';
+import { InputComponent } from './cva/input/input.component';
+import { WorkingRjxsComponent } from './rxjs/working-rjxs/working-rjxs.component';
 
 
 @NgModule({
@@ -13,6 +15,8 @@ import { routingBasicConcept } from './routing-basic-concept.module';
     ReactiveFormComponent,
     DirectiveTestComponent,
     CustomDirectiveDirective,
+    WorkingRjxsComponent
+    // InputComponent
   ],
   imports: [
     CommonModule,
